@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import GeneralInfo from './components/GeneralInfo';
+import EducationInfo from './components/EducationInfo';
 import CV from './components/CV';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
   return (
     <div>
       <GeneralInfo onSubmit={submitGeneral} onClick={editGeneral} general={general} />
+      <EducationInfo />
       <CV general={general} />
     </div>
   );
