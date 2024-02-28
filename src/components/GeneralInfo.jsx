@@ -1,7 +1,7 @@
 function GeneralInfo({ onSubmit, onClick, general }) {
   return (
     <div>
-      <h1>General Info</h1>
+      <h1>General Information</h1>
       {general.hideForm ? (
         <button onClick={onClick}>Edit</button>
       ) : (
@@ -12,11 +12,11 @@ function GeneralInfo({ onSubmit, onClick, general }) {
           </div>
           <div>
             <label htmlFor="email">Email</label>
-            <input type="text" id="email" name="email" defaultValue={general.email} />
+            <input type="email" id="email" name="email" defaultValue={general.email} />
           </div>
           <div>
             <label htmlFor="number">Phone Number</label>
-            <input type="text" id="number" name="number" defaultValue={general.number} />
+            <input type="number" id="number" name="number" defaultValue={general.number} />
           </div>
           <div>
             <label htmlFor="location">City, Province</label>
