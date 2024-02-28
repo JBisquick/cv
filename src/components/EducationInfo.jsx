@@ -1,4 +1,4 @@
-function EducationInfo({onSubmit}) {
+function EducationInfo({onSubmit, education}) {
   return (
     <div>
       <h1>Educational Experience</h1>
@@ -27,6 +27,18 @@ function EducationInfo({onSubmit}) {
         </div>
         <button type="submit">Submit</button>
       </form>
+
+      {education.map((school) => (
+        <div key={school.id}>
+          <div>
+            <div>{school.degree}</div>
+            <div>{school.school}</div>
+            <div>{school.school}</div>
+            <div>{school.startDate} - {school.endDate}</div>
+          </div>
+          <button>Edit</button>
+        </div>
+      ))}
     </div>
   );
 }

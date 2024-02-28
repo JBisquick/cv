@@ -41,8 +41,8 @@ function App() {
   return (
     <div>
       <GeneralInfo onSubmit={submitGeneral} onClick={editGeneral} general={general} />
-      <EducationInfo onSubmit={submitEducation} />
-      <CV general={general} />
+      <EducationInfo onSubmit={submitEducation} education={education} />
+      <CV general={general} education={education} />
     </div>
   );
 }
