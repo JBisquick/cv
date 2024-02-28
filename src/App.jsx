@@ -3,18 +3,30 @@ import GeneralInfo from './components/GeneralInfo';
 import CV from './components/CV';
 
 function App() {
-  const [general, setGeneral] = useState({ name: '', email: '', number: '', location: '' });
+  const [general, setGeneral] = useState({
+    name: '',
+    email: '',
+    number: '',
+    location: '',
+    hideForm: false
+  });
 
   function submitGeneral(e) {
     e.preventDefault();
     const data = new FormData(e.target);
     const newGeneral = Object.fromEntries(data);
+    newGeneral.hideForm = true;
     setGeneral(newGeneral);
+  }
+
+  function editGeneral() {
+    const newGenearl = { ...general, hideForm: false };
+    setGeneral(newGenearl);
   }
 
   return (
     <div>
-      <GeneralInfo onSubmit={submitGeneral} />
+      <GeneralInfo onSubmit={submitGeneral} onClick={editGeneral} general={general} />
       <CV general={general} />
     </div>
   );
