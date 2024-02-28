@@ -1,31 +1,31 @@
-function EducationInfo() {
+function EducationInfo({onSubmit}) {
   return (
     <div>
       <h1>Educational Experience</h1>
-      <form>
+      <form onSubmit={onSubmit}>
         <div>
-          <label htmlFor="">Degree</label>
-          <input type="text" />
+          <label htmlFor="degree">Degree</label>
+          <input type="text" id="degree" name="degree" />
         </div>
         <div>
-          <label htmlFor="">School</label>
-          <input type="text" />
+          <label htmlFor="school">School</label>
+          <input type="text" id="school" name="school" />
         </div>
         <div>
-          <label htmlFor="">City, Country</label>
-          <input type="text" />
+          <label htmlFor="location">City, Country</label>
+          <input type="text" id="location" name="location" />
         </div>
         <div>
           <div>
-            <label htmlFor="">Start Date</label>
-            <input type="date" />
+            <label htmlFor="start-date">Start Date</label>
+            <input type="date" id="start-date" name="startDate" />
           </div>
           <div>
-            <label htmlFor="">End Date</label>
-            <input type="date" />
+            <label htmlFor="end-date">End Date</label>
+            <input type="date" id="end-date" name="endDate" />
           </div>
         </div>
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

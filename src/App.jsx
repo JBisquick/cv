@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import GeneralInfo from './components/GeneralInfo';
 import EducationInfo from './components/EducationInfo';
@@ -12,6 +13,8 @@ function App() {
     hideForm: false
   });
 
+  const [education, setEducation] = useState([]);
+
   function submitGeneral(e) {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -25,10 +28,20 @@ function App() {
     setGeneral(newGenearl);
   }
 
+  function submitEducation(e) {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const school = Object.fromEntries(data);
+    school.id = uuidv4();
+    const newEducation = [...education, school]
+    console.log(newEducation);
+    setEducation(newEducation);
+  }
+
   return (
     <div>
       <GeneralInfo onSubmit={submitGeneral} onClick={editGeneral} general={general} />
-      <EducationInfo />
+      <EducationInfo onSubmit={submitEducation} />
       <CV general={general} />
     </div>
   );
