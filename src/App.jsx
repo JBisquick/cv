@@ -61,6 +61,18 @@ function App() {
     }
   }
 
+  function deleteEducation(e) {
+    let i = 0;
+    for (const school of education) {
+      if (school.id === e.target.value) {
+        let newEducation = [...education];
+        newEducation.splice(i, 1);
+        setEducation(newEducation);
+      }
+      i++;
+    }
+  }
+
   return (
     <div>
       <GeneralInfo onSubmit={submitGeneral} onClick={editGeneral} general={general} />
@@ -69,6 +81,7 @@ function App() {
         education={education}
         updateEditEducation={updateEditEducation}
         editEducation={editEducation}
+        deleteEducation={deleteEducation}
       />
       <CV general={general} education={education} />
     </div>

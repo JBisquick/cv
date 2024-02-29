@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function EducationInfo({ onSubmit, education, updateEditEducation, editEducation }) {
+function EducationInfo({ onSubmit, education, updateEditEducation, editEducation, deleteEducation }) {
   const [formState, setFormState] = useState('hide');
 
   function hide(e) {
@@ -107,6 +107,13 @@ function EducationInfo({ onSubmit, education, updateEditEducation, editEducation
           >
             Edit
           </button>
+          <button
+            value={school.id}
+            onClick={(e) => {
+              deleteEducation(e);
+              hide(e)
+            }}
+          >Delete</button>
         </div>
       ))}
     </div>
