@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import GeneralInfo from './components/GeneralInfo';
 import EducationInfo from './components/EducationInfo';
+import JobInfo from './components/JobInfo';
 import CV from './components/CV';
 
 function App() {
@@ -83,6 +84,7 @@ function App() {
         editEducation={editEducation}
         deleteEducation={deleteEducation}
       />
+      <JobInfo />
       <CV general={general} education={education} />
     </div>
   );
