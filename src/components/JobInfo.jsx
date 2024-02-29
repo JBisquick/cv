@@ -1,8 +1,8 @@
-function JobInfo() {
+function JobInfo({onSubmit}) {
   return (
     <div>
       <h1>Proffesional Experience</h1>
-      <form action="">
+      <form onSubmit={onSubmit}>
         <div>
           <label htmlFor="title">Job Title</label>
           <input type="text" id="title" name="title" />

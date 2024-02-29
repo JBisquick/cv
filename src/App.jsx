@@ -15,6 +15,7 @@ function App() {
   });
   const [education, setEducation] = useState([]);
   const [editEducation, setEditEducation] = useState('none');
+  const [jobs, setJobs] = useState([]);
 
   function submitGeneral(e) {
     e.preventDefault();
@@ -74,6 +75,16 @@ function App() {
     }
   }
 
+  function submitJob(e) {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    let jobData = Object.fromEntries(data);
+    let newJobs = [...jobs];
+    newJobs.push(jobData);
+    console.log(newJobs);
+    setJobs(newJobs);
+  }
+
   return (
     <div>
       <GeneralInfo onSubmit={submitGeneral} onClick={editGeneral} general={general} />
@@ -84,7 +95,7 @@ function App() {
         editEducation={editEducation}
         deleteEducation={deleteEducation}
       />
-      <JobInfo />
+      <JobInfo onSubmit={submitJob}/>
       <CV general={general} education={education} />
     </div>
   );
