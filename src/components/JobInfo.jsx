@@ -1,4 +1,4 @@
-function JobInfo({onSubmit}) {
+function JobInfo({onSubmit, jobs}) {
   return (
     <div>
       <h1>Proffesional Experience</h1>
@@ -25,6 +25,17 @@ function JobInfo({onSubmit}) {
         </div>
         <button>Submit</button>
       </form>
+      {jobs.map((job) => (
+        <div key={job.id}>
+          <div>
+            <div>{job.title}</div>
+            <div>{job.company}</div>
+            <div>{job.startDate} - {job.endDate}</div>
+            <div>{job.description}</div>
+          </div>
+          <button>Edit</button>
+        </div>
+      ))}
     </div>
   );
 }

@@ -79,6 +79,7 @@ function App() {
     e.preventDefault();
     const data = new FormData(e.target);
     let jobData = Object.fromEntries(data);
+    jobData.id = uuidv4();
     let newJobs = [...jobs];
     newJobs.push(jobData);
     console.log(newJobs);
@@ -95,8 +96,8 @@ function App() {
         editEducation={editEducation}
         deleteEducation={deleteEducation}
       />
-      <JobInfo onSubmit={submitJob}/>
-      <CV general={general} education={education} />
+      <JobInfo onSubmit={submitJob} jobs={jobs} />
+      <CV general={general} education={education} jobs={jobs} />
     </div>
   );
 }
