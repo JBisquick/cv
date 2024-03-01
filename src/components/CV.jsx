@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 function CV({ general, education, jobs }) {
   return (
     <div>
@@ -11,7 +13,7 @@ function CV({ general, education, jobs }) {
           <div>{school.school}</div>
           <div>{school.school}</div>
           <div>
-            {school.startDate} - {school.endDate}
+          {format(new Date(school.startDate.replaceAll('-', '/')), "MMM',' yyyy")} - {format(new Date(school.endDate.replaceAll('-', '/')), "MMM',' yyyy")}
           </div>
         </div>
       ))}
@@ -20,7 +22,7 @@ function CV({ general, education, jobs }) {
           <div>{job.title}</div>
           <div>{job.company}</div>
           <div>
-            {job.startDate} - {job.endDate}
+          {format(new Date(job.startDate.replaceAll('-', '/')), "MMM',' yyyy")} - {format(new Date(job.endDate.replaceAll('-', '/')), "MMM',' yyyy")}
           </div>
           <div>{job.description}</div>
         </div>

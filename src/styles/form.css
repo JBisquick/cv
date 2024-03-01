@@ -59,6 +59,8 @@ button {
 
 button:hover {
   cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.2s;
 }
 
 .form-header-container {
@@ -78,4 +80,25 @@ button:hover {
 .date-container {
   display: flex;
   justify-content: space-between;
+}
+
+.form-summary-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid black;
+  padding: 6px;
+}
+
+.button-container {
+  display: flex;
+  gap: 8px;
+}
+
+.button-container button {
+  font-size: 1rem;
+  width: 64px;
+  padding: 2px 0;
+  border-radius: 8px;
+  background-color: pink;
 }

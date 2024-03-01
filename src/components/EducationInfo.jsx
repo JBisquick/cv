@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { format } from 'date-fns';
 import '../styles/form.css';
 import educationImg from '../assets/education.svg';
 
@@ -58,11 +59,11 @@ function EducationInfo({
         >
           <div className="input-container">
             <label htmlFor="degree">Degree</label>
-            <input type="text" id="degree" name="degree" defaultValue={editEducation.degree} />
+            <input type="text" id="degree" name="degree" defaultValue={editEducation.degree} required/>
           </div>
           <div className="input-container">
             <label htmlFor="school">School</label>
-            <input type="text" id="school" name="school" defaultValue={editEducation.school} />
+            <input type="text" id="school" name="school" defaultValue={editEducation.school} required/>
           </div>
           <div className="input-container">
             <label htmlFor="location">City, Country</label>
@@ -71,6 +72,7 @@ function EducationInfo({
               id="location"
               name="location"
               defaultValue={editEducation.location}
+              required
             />
           </div>
           <div className='date-container'>
@@ -81,6 +83,7 @@ function EducationInfo({
                 id="start-date"
                 name="startDate"
                 defaultValue={editEducation.startDate}
+                required
               />
             </div>
             <div>
@@ -90,6 +93,7 @@ function EducationInfo({
                 id="end-date"
                 name="endDate"
                 defaultValue={editEducation.endDate}
+                required
               />
             </div>
           </div>
@@ -99,38 +103,40 @@ function EducationInfo({
         </form>
       )}
       {education.map((school) => (
-        <div key={school.id}>
+        <div key={school.id} className="form-summary-container">
           <div>
             <div>{school.degree}</div>
             <div>{school.school}</div>
             <div>{school.location}</div>
             <div>
-              {school.startDate} - {school.endDate}
+              {format(new Date(school.startDate.replaceAll('-', '/')), "MMM',' yyyy")} - {format(new Date(school.endDate.replaceAll('-', '/')), "MMM',' yyyy")}
             </div>
           </div>
-          <button
-            value={school.id}
-            onClick={(e) => {
-              updateEditEducation(e);
-              // to prevent jumping from edit to edit so default value can update
-              if (formState === 'show') {
+          <div className='button-container'>
+            <button
+              value={school.id}
+              onClick={(e) => {
+                updateEditEducation(e);
+                // to prevent jumping from edit to edit so default value can update
+                if (formState === 'show') {
+                  hide(e);
+                } else {
+                  show();
+                }
+              }}
+            >
+              Edit
+            </button>
+            <button
+              value={school.id}
+              onClick={(e) => {
+                deleteEducation(e);
                 hide(e);
-              } else {
-                show();
-              }
-            }}
-          >
-            Edit
-          </button>
-          <button
-            value={school.id}
-            onClick={(e) => {
-              deleteEducation(e);
-              hide(e);
-            }}
-          >
-            Delete
-          </button>
+              }}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       ))}
     </div>

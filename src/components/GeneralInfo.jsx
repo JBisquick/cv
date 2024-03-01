@@ -15,19 +15,19 @@ function GeneralInfo({ onSubmit, onClick, general }) {
         <form onSubmit={onSubmit}>
           <div className="input-container">
             <label htmlFor="name">Full Name</label>
-            <input type="text" id="name" name="name" defaultValue={general.name} />
+            <input type="text" id="name" name="name" defaultValue={general.name} required />
           </div>
           <div className="input-container">
             <label htmlFor="email">Email</label>
-            <input type="text" id="email" name="email" defaultValue={general.email} />
+            <input type="text" id="email" name="email" defaultValue={general.email} required />
           </div>
           <div className="input-container">
             <label htmlFor="number">Phone Number</label>
-            <input type="text" id="number" name="number" defaultValue={general.number} />
+            <input type="text" id="number" name="number" defaultValue={general.number} required />
           </div>
           <div className="input-container">
             <label htmlFor="location">City, Province</label>
-            <input type="text" id="location" name="location" defaultValue={general.location} />
+            <input type="text" id="location" name="location" defaultValue={general.location} required />
           </div>
           <button type="submit" className="submit">
             Submit
