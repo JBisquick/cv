@@ -1,0 +1,81 @@
+h1 {
+  margin: 0;
+}
+
+input {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(238, 240, 242);
+  font-size: 0.9rem;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+label {
+  font-weight: bolder;
+  font-size: 0.9rem;
+  padding-left: 4px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+img {
+  height: 2.5rem;
+  width: auto;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: white;
+  margin-bottom: 48px;
+  border-radius: 16px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 16px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+button {
+  font-size: 1.5rem;
+  width: 112px;
+  padding: 4px 0;
+  border-radius: 15px;
+  background-color: pink;
+  border: 0;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  align-self: flex-end;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.form-header-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-header-container button {
+  align-self: center;
+}
+
+.form-title-container {
+  display: flex;
+  gap: 8px;
+}
+
+.date-container {
+  display: flex;
+  justify-content: space-between;
+}

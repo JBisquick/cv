@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(238, 240, 242);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 24px 36px;
+  gap: 48;
+}
+
+.generator-container {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}

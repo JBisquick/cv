@@ -4,6 +4,7 @@ import GeneralInfo from './components/GeneralInfo';
 import EducationInfo from './components/EducationInfo';
 import JobInfo from './components/JobInfo';
 import CV from './components/CV';
+import './styles/index.css';
 
 function App() {
   const [general, setGeneral] = useState({
@@ -122,16 +123,24 @@ function App() {
   }
 
   return (
-    <div>
-      <GeneralInfo onSubmit={submitGeneral} onClick={editGeneral} general={general} />
-      <EducationInfo
-        onSubmit={submitEducation}
-        education={education}
-        updateEditEducation={updateEditEducation}
-        editEducation={editEducation}
-        deleteEducation={deleteEducation}
-      />
-      <JobInfo onSubmit={submitJob} jobs={jobs} updateEditJob={updateEditJob} editJob={editJob} deleteJob={deleteJob} />
+    <div className="container">
+      <div className="generator-container">
+        <GeneralInfo onSubmit={submitGeneral} onClick={editGeneral} general={general} />
+        <EducationInfo
+          onSubmit={submitEducation}
+          education={education}
+          updateEditEducation={updateEditEducation}
+          editEducation={editEducation}
+          deleteEducation={deleteEducation}
+        />
+        <JobInfo
+          onSubmit={submitJob}
+          jobs={jobs}
+          updateEditJob={updateEditJob}
+          editJob={editJob}
+          deleteJob={deleteJob}
+        />
+      </div>
       <CV general={general} education={education} jobs={jobs} />
     </div>
   );

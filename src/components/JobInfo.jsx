@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import '../styles/form.css';
+import jobImg from '../assets/job.svg';
 
 function JobInfo({ onSubmit, jobs, updateEditJob, editJob, deleteJob }) {
   const [formState, setFormState] = useState('hide');
@@ -13,20 +15,23 @@ function JobInfo({ onSubmit, jobs, updateEditJob, editJob, deleteJob }) {
   }
 
   return (
-    <div>
-      <h1>Proffesional Experience</h1>
-      {formState === 'hide' ? (
-        <button
-          value="none"
-          onClick={(e) => {
-            updateEditJob(e);
-            show();
-          }}
-        >
-          Add
-        </button>
-      ) : (
-        <>
+    <div className="form-container">
+      <div className="form-header-container">
+        <div className="form-title-container">
+          <img src={jobImg} />
+          <h1>Proffesional Experience</h1>
+        </div>
+        {formState === 'hide' ? (
+          <button
+            value="none"
+            onClick={(e) => {
+              updateEditJob(e);
+              show();
+            }}
+          >
+            Add
+          </button>
+        ) : (
           <button
             value="none"
             onClick={(e) => {
@@ -36,30 +41,34 @@ function JobInfo({ onSubmit, jobs, updateEditJob, editJob, deleteJob }) {
           >
             Cancel
           </button>
-          <form
-            onSubmit={(e) => {
-              onSubmit(e);
-              hide(e);
-            }}
-          >
-            <div>
-              <label htmlFor="title">Job Title</label>
-              <input type="text" id="title" name="title" defaultValue={editJob.title} />
-            </div>
-            <div>
-              <label htmlFor="company">Company</label>
-              <input type="text" id="company" name="company" defaultValue={editJob.company} />
-            </div>
-            <div>
-              <label htmlFor="description">Description</label>
-              <textarea
-                name="description"
-                id="description"
-                cols="30"
-                rows="3"
-                defaultValue={editJob.description}
-              ></textarea>
-            </div>
+        )}
+      </div>
+      {formState === 'show' && (
+        <form
+          onSubmit={(e) => {
+            onSubmit(e);
+            hide(e);
+          }}
+        >
+          <div className="input-container">
+            <label htmlFor="title">Job Title</label>
+            <input type="text" id="title" name="title" defaultValue={editJob.title} />
+          </div>
+          <div className="input-container">
+            <label htmlFor="company">Company</label>
+            <input type="text" id="company" name="company" defaultValue={editJob.company} />
+          </div>
+          <div className="input-container">
+            <label htmlFor="description">Description</label>
+            <textarea
+              name="description"
+              id="description"
+              cols="30"
+              rows="3"
+              defaultValue={editJob.description}
+            ></textarea>
+          </div>
+          <div className='date-container'>
             <div>
               <label htmlFor="startDate">Start Date</label>
               <input type="date" id="startDate" name="startDate" defaultValue={editJob.startDate} />
@@ -68,9 +77,11 @@ function JobInfo({ onSubmit, jobs, updateEditJob, editJob, deleteJob }) {
               <label htmlFor="endDate">End Date</label>
               <input type="date" id="endDate" name="endDate" defaultValue={editJob.endDate} />
             </div>
-            <button type="submit">Submit</button>
-          </form>
-        </>
+          </div>
+          <button type="submit" className="submit">
+            Submit
+          </button>
+        </form>
       )}
       {jobs.map((job) => (
         <div key={job.id}>

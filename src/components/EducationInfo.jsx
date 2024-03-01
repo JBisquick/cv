@@ -1,6 +1,14 @@
 import { useState } from 'react';
+import '../styles/form.css';
+import educationImg from '../assets/education.svg';
 
-function EducationInfo({ onSubmit, education, updateEditEducation, editEducation, deleteEducation }) {
+function EducationInfo({
+  onSubmit,
+  education,
+  updateEditEducation,
+  editEducation,
+  deleteEducation
+}) {
   const [formState, setFormState] = useState('hide');
 
   function hide(e) {
@@ -13,20 +21,23 @@ function EducationInfo({ onSubmit, education, updateEditEducation, editEducation
   }
 
   return (
-    <div>
-      <h1>Educational Experience</h1>
-      {formState === 'hide' ? (
-        <button
-          value="none"
-          onClick={(e) => {
-            updateEditEducation(e);
-            show();
-          }}
-        >
-          Add
-        </button>
-      ) : (
-        <>
+    <div className="form-container">
+      <div className="form-header-container">
+        <div className="form-title-container">
+          <img src={educationImg} />
+          <h1>Educational Experience</h1>
+        </div>
+        {formState === 'hide' ? (
+          <button
+            value="none"
+            onClick={(e) => {
+              updateEditEducation(e);
+              show();
+            }}
+          >
+            Add
+          </button>
+        ) : (
           <button
             value="none"
             onClick={(e) => {
@@ -36,52 +47,56 @@ function EducationInfo({ onSubmit, education, updateEditEducation, editEducation
           >
             Cancel
           </button>
-          <form
-            onSubmit={(e) => {
-              onSubmit(e);
-              hide(e);
-            }}
-          >
+        )}
+      </div>
+      {formState === 'show' && (
+        <form
+          onSubmit={(e) => {
+            onSubmit(e);
+            hide(e);
+          }}
+        >
+          <div className="input-container">
+            <label htmlFor="degree">Degree</label>
+            <input type="text" id="degree" name="degree" defaultValue={editEducation.degree} />
+          </div>
+          <div className="input-container">
+            <label htmlFor="school">School</label>
+            <input type="text" id="school" name="school" defaultValue={editEducation.school} />
+          </div>
+          <div className="input-container">
+            <label htmlFor="location">City, Country</label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              defaultValue={editEducation.location}
+            />
+          </div>
+          <div className='date-container'>
             <div>
-              <label htmlFor="degree">Degree</label>
-              <input type="text" id="degree" name="degree" defaultValue={editEducation.degree} />
-            </div>
-            <div>
-              <label htmlFor="school">School</label>
-              <input type="text" id="school" name="school" defaultValue={editEducation.school} />
-            </div>
-            <div>
-              <label htmlFor="location">City, Country</label>
+              <label htmlFor="start-date">Start Date</label>
               <input
-                type="text"
-                id="location"
-                name="location"
-                defaultValue={editEducation.location}
+                type="date"
+                id="start-date"
+                name="startDate"
+                defaultValue={editEducation.startDate}
               />
             </div>
             <div>
-              <div>
-                <label htmlFor="start-date">Start Date</label>
-                <input
-                  type="date"
-                  id="start-date"
-                  name="startDate"
-                  defaultValue={editEducation.startDate}
-                />
-              </div>
-              <div>
-                <label htmlFor="end-date">End Date</label>
-                <input
-                  type="date"
-                  id="end-date"
-                  name="endDate"
-                  defaultValue={editEducation.endDate}
-                />
-              </div>
+              <label htmlFor="end-date">End Date</label>
+              <input
+                type="date"
+                id="end-date"
+                name="endDate"
+                defaultValue={editEducation.endDate}
+              />
             </div>
-            <button type="submit">Submit</button>
-          </form>
-        </>
+          </div>
+          <button type="submit" className="submit">
+            Submit
+          </button>
+        </form>
       )}
       {education.map((school) => (
         <div key={school.id}>
@@ -111,9 +126,11 @@ function EducationInfo({ onSubmit, education, updateEditEducation, editEducation
             value={school.id}
             onClick={(e) => {
               deleteEducation(e);
-              hide(e)
+              hide(e);
             }}
-          >Delete</button>
+          >
+            Delete
+          </button>
         </div>
       ))}
     </div>

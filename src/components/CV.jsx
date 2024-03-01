@@ -10,14 +10,18 @@ function CV({ general, education, jobs }) {
           <div>{school.degree}</div>
           <div>{school.school}</div>
           <div>{school.school}</div>
-          <div>{school.startDate} - {school.endDate}</div>
+          <div>
+            {school.startDate} - {school.endDate}
+          </div>
         </div>
       ))}
       {jobs.map((job) => (
         <div key={job.id}>
           <div>{job.title}</div>
           <div>{job.company}</div>
-          <div>{job.startDate} - {job.endDate}</div>
+          <div>
+            {job.startDate} - {job.endDate}
+          </div>
           <div>{job.description}</div>
         </div>
       ))}
