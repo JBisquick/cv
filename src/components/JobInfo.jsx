@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function JobInfo({ onSubmit, jobs, updateEditJob, editJob }) {
+function JobInfo({ onSubmit, jobs, updateEditJob, editJob, deleteJob }) {
   const [formState, setFormState] = useState('hide');
 
   function hide(e) {
@@ -96,7 +96,15 @@ function JobInfo({ onSubmit, jobs, updateEditJob, editJob }) {
           >
             Edit
           </button>
-          <button>Edit</button>
+          <button
+            value={job.id}
+            onClick={(e) => {
+              deleteJob(e);
+              hide(e);
+            }}
+          >
+            Delete
+          </button>
         </div>
       ))}
     </div>

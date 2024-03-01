@@ -109,6 +109,18 @@ function App() {
     }
   }
 
+  function deleteJob(e) {
+    let i = 0;
+    for (const job of jobs) {
+      if (job.id === e.target.value) {
+        let newJobs = [...jobs];
+        newJobs.splice(i, 1);
+        setJobs(newJobs);
+      }
+      i++;
+    }
+  }
+
   return (
     <div>
       <GeneralInfo onSubmit={submitGeneral} onClick={editGeneral} general={general} />
@@ -119,7 +131,7 @@ function App() {
         editEducation={editEducation}
         deleteEducation={deleteEducation}
       />
-      <JobInfo onSubmit={submitJob} jobs={jobs} updateEditJob={updateEditJob} editJob={editJob} />
+      <JobInfo onSubmit={submitJob} jobs={jobs} updateEditJob={updateEditJob} editJob={editJob} deleteJob={deleteJob} />
       <CV general={general} education={education} jobs={jobs} />
     </div>
   );
