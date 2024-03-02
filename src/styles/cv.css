@@ -1,0 +1,60 @@
+.cv-container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 32px 32px 0;
+  height: 700px;
+  overflow-y: auto;
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);;
+}
+
+.cv-name {
+  align-self: center;
+  margin-top: 32px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.cv-personal-info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  font-size: 12px;
+  gap: 16px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 16px 42px;
+  border-bottom: 2px solid black;
+}
+
+.education-container {
+  display: flex;
+  margin: 16px 42px;
+  font-size: 14px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.time-location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.job-info { 
+  display: flex;
+  margin: 16px 42px;
+  font-size: 14px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-description {
+  margin: 16px 42px;
+  font-size: 11px;
+}

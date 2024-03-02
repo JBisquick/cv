@@ -2,7 +2,7 @@ h1 {
   margin: 0;
 }
 
-input {
+input, textarea {
   display: flex;
   flex-direction: column;
   background-color: rgb(238, 240, 242);
@@ -10,6 +10,10 @@ input {
   border: none;
   padding: 8px 12px;
   border-radius: 10px;
+}
+
+textarea {
+  resize: none;
 }
 
 label {
@@ -59,7 +63,7 @@ button {
 
 button:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.05);
   transition: 0.2s;
 }
 
