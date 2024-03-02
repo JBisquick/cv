@@ -82,7 +82,7 @@ function App() {
     const data = new FormData(e.target);
     let jobData = Object.fromEntries(data);
     let newJobs = [...jobs];
-    if (editEducation === 'none') {
+    if (editJob === 'none') {
       jobData.id = uuidv4();
       newJobs.push(jobData);
       setJobs(newJobs);
