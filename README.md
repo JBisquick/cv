@@ -2,7 +2,7 @@
 
 This project is a CV Generator.
 
-**Link to Project:** https://jbisquick.github.io/odin-weather-app/
+**Link to Project:** https://jbisquick.github.io/odin-cv/
 
 # How it's Made:
 
